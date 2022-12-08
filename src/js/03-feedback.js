@@ -27,7 +27,7 @@ function valueOfLocalStorage(e) {
         const parseSavedMessag = JSON.parse(savedMessage);
         const { email, message } = parseSavedMessag;
         
-        form.value = email;
+        form.email.value = email;
         console.log(form.value)
         textarea.value = message;
          console.log(textarea.value)
