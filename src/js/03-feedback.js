@@ -15,6 +15,7 @@ function onFormSubmit(e) {
 
     e.target.reset();
     localStorage.removeItem(STORAGE_KEY);
+    console.log(formData)
     
 };
 
@@ -28,18 +29,14 @@ function valueOfLocalStorage(e) {
         const { email, message } = parseSavedMessag;
         
         form.email.value = email;
-        console.log(form.value)
         textarea.value = message;
-         console.log(textarea.value)
-
-        console.log('Return from LocaleStorage')
     }
 };
 
 function onFormInput(e) {
 
     formData[e.target.name] = e.target.value;
-    console.log(formData)
+    
     const data = JSON.stringify(formData);
     localStorage.setItem(STORAGE_KEY, data);
 };

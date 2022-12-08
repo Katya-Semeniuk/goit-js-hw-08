@@ -8,7 +8,7 @@ function videoTime(data) {
     localStorage.setItem('videoplayer-current-time', 1000)
 };
 
-videoTime(data)
+// videoTime(data)
 
 player.on('timeupdate', throttle(videoTime, 1000)) ;
 
@@ -19,10 +19,7 @@ player.on('timeupdate', throttle(videoTime, 1000)) ;
      const parseCurrentTime = JSON.parse(currentTime)
      
   
-if (parseCurrentTime === "")
-    return;
-else (
-    player.setCurrentTime(parseCurrentTime)
-    )
+if (!parseCurrentTime)
+    return
  }
 checkcurrentTime()
