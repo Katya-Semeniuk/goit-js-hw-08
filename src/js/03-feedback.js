@@ -21,11 +21,18 @@ function onFormSubmit(e) {
 function valueOfLocalStorage(e) {
     
     const savedMessage = localStorage.getItem(STORAGE_KEY);
+    // взяла дані з localStorage
    
     if (savedMessage) {
         const parseSavedMessag = JSON.parse(savedMessage);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(parseSavedMessag));
+        const { email, message } = parseSavedMessag;
         
+        form.value = email;
+        console.log(form.value)
+        textarea.value = message;
+         console.log(textarea.value)
+
+        console.log('Return from LocaleStorage')
     }
 };
 
