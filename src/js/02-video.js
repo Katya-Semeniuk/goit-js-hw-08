@@ -15,11 +15,11 @@ player.on('timeupdate', throttle(videoTime, 1000)) ;
 
  function checkcurrentTime() {
      const currentTime = localStorage.getItem('videoplayer-current-time')
-     console.log(currentTime)
      const parseCurrentTime = JSON.parse(currentTime)
      
   
 if (!parseCurrentTime)
     return
  }
+ player.setCurrentTime(parseCurrentTime)
 checkcurrentTime()

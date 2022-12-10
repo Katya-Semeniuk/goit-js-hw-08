@@ -24,7 +24,7 @@ function valueOfLocalStorage(e) {
     const savedMessage = localStorage.getItem(STORAGE_KEY);
     // взяла дані з localStorage
    
-    if (savedMessage) {
+    if (savedMessage || '') {
         const parseSavedMessag = JSON.parse(savedMessage);
         const { email, message } = parseSavedMessag;
         
