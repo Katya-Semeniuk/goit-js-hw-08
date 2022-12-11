@@ -18,25 +18,23 @@ function onFormSubmit(e) {
     console.log(formData)
     
 };
+ function onFormInput(e) {
 
-function valueOfLocalStorage(e) {
+        formData[e.target.name] = e.target.value;
     
-    const savedMessage = localStorage.getItem(STORAGE_KEY);
-    // взяла дані з localStorage
-   
-    if (savedMessage || '' || undefined) {
+        const data = JSON.stringify(formData);
+        localStorage.setItem(STORAGE_KEY, data);
+    };
+
+    function valueOfLocalStorage(e) {
+    
+        const savedMessage = localStorage.getItem(STORAGE_KEY);
         const parseSavedMessag = JSON.parse(savedMessage);
+   
+    if (parseSavedMessag) {
         const { email, message } = parseSavedMessag;
         
-        form.email.value = email;
-        textarea.value = message;
+        form.email.value = email !== undefined ? email : "";
+        textarea.value = message !== undefined ? message : "";
     }
-};
-
-function onFormInput(e) {
-
-    formData[e.target.name] = e.target.value;
-    
-    const data = JSON.stringify(formData);
-    localStorage.setItem(STORAGE_KEY, data);
-};
+    };
